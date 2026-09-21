@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "Medika",
+    "slug": "medika",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "medika",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0ea5e9"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.medika.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Medika necesita acceso a la cámara para tomar fotos de documentos.",
+        "NSPhotoLibraryUsageDescription": "Medika necesita acceso a las fotos para adjuntar documentos."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0ea5e9"
+      },
+      "package": "com.medika.app",
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notification-icon.png",
+          "color": "#0ea5e9"
+        }
+      ],
+      "expo-font",
+      "expo-splash-screen"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

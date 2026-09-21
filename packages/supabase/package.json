@@ -1,0 +1,15 @@
+{
+  "name": "@medika/supabase",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "supabase start",
+    "stop": "supabase stop",
+    "reset": "supabase db reset",
+    "migrate": "supabase db push",
+    "types": "supabase gen types typescript --local > ../shared/src/types/database.ts"
+  },
+  "devDependencies": {
+    "supabase": "^1.200.0"
+  }
+}
