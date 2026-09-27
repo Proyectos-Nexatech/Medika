@@ -1,11 +1,11 @@
 import { supabase } from '@/lib/supabase';
 import type { Database } from '@medika/shared';
 
-export type PatientDocument = Database['public']['Tables']['patient_documents']['Row'];
+export type PatientDocument = Database['public']['Tables']['documents']['Row'];
 
 export const documentService = {
   async getDocuments(organizationId: string) {
-    const { data, error } = await supabase.from('patient_documents')
+    const { data, error } = await supabase.from('documents')
       .select('*, patients(first_name, last_name, document_number)')
       .eq('organization_id', organizationId)
       .order('created_at', { ascending: false });
@@ -14,7 +14,7 @@ export const documentService = {
   },
   
   async getDocumentsByPatient(patientId: string) {
-    const { data, error } = await supabase.from('patient_documents')
+    const { data, error } = await supabase.from('documents')
       .select('*')
       .eq('patient_id', patientId)
       .order('created_at', { ascending: false });
@@ -41,7 +41,7 @@ export const documentService = {
     // 4. Registrar en la base de datos
     const { data: user } = await supabase.auth.getUser();
     
-    const { data, error: dbError } = await supabase.from('patient_documents').insert({
+    const { data, error: dbError } = await supabase.from('documents').insert({
       organization_id: organizationId,
       patient_id: patientId,
       file_name: file.name,
@@ -65,7 +65,7 @@ export const documentService = {
     const { error: storageError } = await supabase.storage.from('documents').remove([filePath]);
     if (storageError) throw storageError;
 
-    const { error: dbError } = await supabase.from('patient_documents').delete().eq('id', id);
+    const { error: dbError } = await supabase.from('documents').delete().eq('id', id);
     if (dbError) throw dbError;
   }
 };

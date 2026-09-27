@@ -1,6 +1,6 @@
 /**
  * Tipos generados del schema de Supabase / PostgreSQL
- * Medika — Plataforma SaaS Multi-Tenant para Consultorios de Salud
+ * Medika â€” Plataforma SaaS Multi-Tenant para Consultorios de Salud
  */
 
 export type Json =
@@ -506,11 +506,11 @@ export type Database = {
           user_agent?: string | null
           created_at?: string
         }
-        Update: never
+        Update: Record<string, never>
       }
     }
     Views: {
-      [_ in never]: never
+      [key: string]: any
     }
     Functions: {
       get_user_organization_role: {
@@ -531,3 +531,4 @@ export type Tables<T extends keyof Database['public']['Tables']> = Database['pub
 export type TablesInsert<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Insert']
 export type TablesUpdate<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Update']
 export type Enums<T extends keyof Database['public']['Enums']> = Database['public']['Enums'][T]
+
