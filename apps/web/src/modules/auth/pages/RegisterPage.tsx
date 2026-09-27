@@ -14,11 +14,11 @@ const registerSchema = z.object({
   firstName: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
   lastName: z.string().min(2, 'El apellido debe tener al menos 2 caracteres'),
   organizationName: z.string().min(3, 'El nombre del consultorio debe tener al menos 3 caracteres'),
-  email: z.string().email('Ingrese un correo electrónico válido'),
-  password: z.string().min(8, 'La contraseña debe tener al menos 8 caracteres'),
+  email: z.string().email('Ingrese un correo electrÃ³nico vÃ¡lido'),
+  password: z.string().min(8, 'La contraseÃ±a debe tener al menos 8 caracteres'),
   confirmPassword: z.string(),
 }).refine((data) => data.password === data.confirmPassword, {
-  message: 'Las contraseñas no coinciden',
+  message: 'Las contraseÃ±as no coinciden',
   path: ['confirmPassword'],
 })
 
@@ -53,19 +53,19 @@ export function RegisterPage() {
 
   if (success) {
     return (
-      <Card className="shadow-lg">
+      <Card className="shadow-2xl border-0 rounded-[24px] overflow-hidden bg-white/95 backdrop-blur-md">
         <CardContent className="pt-6 text-center space-y-4">
           <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center mx-auto">
             <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 className="text-lg font-semibold">¡Cuenta creada exitosamente!</h2>
+          <h2 className="text-lg font-semibold">Â¡Cuenta creada exitosamente!</h2>
           <p className="text-sm text-muted-foreground">
-            Hemos enviado un correo de verificación a su email. Por favor revise su bandeja de entrada.
+            Hemos enviado un correo de verificaciÃ³n a su email. Por favor revise su bandeja de entrada.
           </p>
-          <Button asChild className="w-full">
-            <Link to="/auth/login">Ir al inicio de sesión</Link>
+          <Button asChild className="w-full h-12 rounded-xl bg-medika-600 hover:bg-medika-700 text-[15px] font-semibold shadow-md shadow-medika-200 transition-all">
+            <Link to="/auth/login">Ir al inicio de sesiÃ³n</Link>
           </Button>
         </CardContent>
       </Card>
@@ -73,13 +73,13 @@ export function RegisterPage() {
   }
 
   return (
-    <Card className="shadow-lg">
-      <CardHeader>
+    <Card className="shadow-2xl border-0 rounded-[24px] overflow-hidden bg-white/95 backdrop-blur-md">
+      <div className="p-8 md:p-10 pb-0"><CardHeader className="px-0 pt-0 text-center">
         <CardTitle className="text-xl">Crear cuenta</CardTitle>
         <CardDescription>Registre su consultorio en Medika</CardDescription>
       </CardHeader>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-5 px-0">
           {error && (
             <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">{error}</div>
           )}
@@ -91,7 +91,7 @@ export function RegisterPage() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="lastName">Apellido</Label>
-              <Input id="lastName" placeholder="Pérez" {...register('lastName')} />
+              <Input id="lastName" placeholder="PÃ©rez" {...register('lastName')} />
               {errors.lastName && <p className="text-xs text-destructive">{errors.lastName.message}</p>}
             </div>
           </div>
@@ -101,29 +101,29 @@ export function RegisterPage() {
             {errors.organizationName && <p className="text-xs text-destructive">{errors.organizationName.message}</p>}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email">Correo electrónico</Label>
+            <Label htmlFor="email">Correo electrÃ³nico</Label>
             <Input id="email" type="email" placeholder="admin@consultorio.com" {...register('email')} />
             {errors.email && <p className="text-xs text-destructive">{errors.email.message}</p>}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password">Contraseña</Label>
-            <Input id="password" type="password" placeholder="Mínimo 8 caracteres" {...register('password')} />
+            <Label htmlFor="password">ContraseÃ±a</Label>
+            <Input id="password" type="password" placeholder="MÃ­nimo 8 caracteres" {...register('password')} />
             {errors.password && <p className="text-xs text-destructive">{errors.password.message}</p>}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="confirmPassword">Confirmar contraseña</Label>
-            <Input id="confirmPassword" type="password" placeholder="••••••••" {...register('confirmPassword')} />
+            <Label htmlFor="confirmPassword">Confirmar contraseÃ±a</Label>
+            <Input id="confirmPassword" type="password" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" {...register('confirmPassword')} />
             {errors.confirmPassword && <p className="text-xs text-destructive">{errors.confirmPassword.message}</p>}
           </div>
         </CardContent>
-        <CardFooter className="flex flex-col gap-3">
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
+        <CardFooter className="flex flex-col gap-4 px-0 pt-4 pb-0"></div>
+          <Button type="submit" className="w-full h-12 rounded-xl bg-medika-600 hover:bg-medika-700 text-[15px] font-semibold shadow-md shadow-medika-200 transition-all" disabled={isSubmitting}>
             {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Crear cuenta
           </Button>
           <p className="text-center text-sm text-muted-foreground">
-            ¿Ya tiene cuenta?{' '}
-            <Link to="/auth/login" className="text-medika-600 hover:underline font-medium">Iniciar sesión</Link>
+            Â¿Ya tiene cuenta?{' '}
+            <Link to="/auth/login" className="text-medika-600 hover:underline font-medium">Iniciar sesiÃ³n</Link>
           </p>
         </CardFooter>
       </form>
