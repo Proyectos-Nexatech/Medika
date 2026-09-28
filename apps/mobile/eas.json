@@ -1,36 +1,36 @@
 {
-  "cli": {
-    "version": ">= 12.5.0",
-    "appVersionSource": "remote"
-  },
-  "build": {
-    "development": {
-      "developmentClient": true,
-      "distribution": "internal"
-    },
-    "preview": {
-      "distribution": "internal",
-      "android": {
-        "buildType": "apk"
-      },
+    "cli":  {
+                "version":  "\u003e= 12.5.0",
+                "appVersionSource":  "remote"
+            },
+    "build":  {
+                  "development":  {
+                                      "developmentClient":  true,
+                                      "distribution":  "internal"
+                                  },
+                  "preview":  {
+                                  "distribution":  "internal",
+                                  "android":  {
+                                                  "buildType":  "apk"
+                                              },
+                                  "env":  {
+                                              "NODE_OPTIONS":  "--max-old-space-size=4096",
+                                              "EXPO_PUBLIC_SUPABASE_URL":  "https://bwzvjhprymxorrefjvde.supabase.co",
+                                              "EXPO_PUBLIC_SUPABASE_ANON_KEY":  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3enZqaHByeW14b3JyZWZqdmRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk3Njc0ODIsImV4cCI6MjEwNTM0MzQ4Mn0.5t7h6MoNzcMbVUm9QTAU-59gPj95h-5MkVchG3_wkUI"
+                                          }
+                              },
+                  "production":  {
+                                     "autoIncrement":  true,
+                                     "env":  {
+                                                 "NODE_OPTIONS":  "--max-old-space-size=4096",
+                                                 "EXPO_PUBLIC_SUPABASE_URL":  "https://bwzvjhprymxorrefjvde.supabase.co",
+                                                 "EXPO_PUBLIC_SUPABASE_ANON_KEY":  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3enZqaHByeW14b3JyZWZqdmRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk3Njc0ODIsImV4cCI6MjEwNTM0MzQ4Mn0.5t7h6MoNzcMbVUm9QTAU-59gPj95h-5MkVchG3_wkUI"
+                                             }
+                                 }
+              },
+    "submit":  {
+                   "production":  {
 
-      "env": {
-        "NODE_OPTIONS": "--max-old-space-size=4096",
-        "EXPO_PUBLIC_SUPABASE_URL": "https://bwzvjhprymxorrefjvde.supabase.co",
-        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3enZqaHByeW14b3JyZWZqdmRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk3Njc0ODIsImV4cCI6MjEwNTM0MzQ4Mn0.5t7h6MoNzcMbVUm9QTAU-59gPj95h-5MkVchG3_wkUI"
-      }
-    },
-    "production": {
-      "autoIncrement": true,
-
-      "env": {
-        "NODE_OPTIONS": "--max-old-space-size=4096",
-        "EXPO_PUBLIC_SUPABASE_URL": "https://bwzvjhprymxorrefjvde.supabase.co",
-        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3enZqaHByeW14b3JyZWZqdmRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk3Njc0ODIsImV4cCI6MjEwNTM0MzQ4Mn0.5t7h6MoNzcMbVUm9QTAU-59gPj95h-5MkVchG3_wkUI"
-      }
-    }
-  },
-  "submit": {
-    "production": {}
-  }
+                                  }
+               }
 }
