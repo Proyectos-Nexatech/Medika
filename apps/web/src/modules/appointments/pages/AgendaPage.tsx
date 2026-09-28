@@ -26,7 +26,7 @@ const localizer = dateFnsLocalizer({
 });
 
 export function AgendaPage() {
-  const { organizationId } = useOrganization();
+  const { organizationId, profile } = useOrganization();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   
