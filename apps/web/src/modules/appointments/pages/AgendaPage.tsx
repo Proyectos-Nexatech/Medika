@@ -1,4 +1,4 @@
-﻿import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Calendar, dateFnsLocalizer, Views } from 'react-big-calendar';
 import { format, parse, startOfWeek, getDay } from 'date-fns';
 import es from 'date-fns/locale/es';
@@ -146,6 +146,10 @@ export function AgendaPage() {
       setFormServ('');
       setFormError('');
     },
+    onError: (error: any) => {
+      setFormError('Error al guardar la cita en la base de datos.');
+      console.error(error);
+    },
     onSettled: () => setIsCreating(false),
   });
 
@@ -196,11 +200,12 @@ export function AgendaPage() {
       organization_id: organizationId!,
       patient_id: formPat,
       professional_id: formProf,
-      service_id: formServ,
+      service_id: formServ || null,
       appointment_date: dateStr,
       start_time: startStr,
       end_time: endStr,
       status: 'pending',
+      created_by: profile!.id
     });
   };
 
